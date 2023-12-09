@@ -6,7 +6,7 @@
 // Rust's Option<u8>
 struct option_u8 {
   bool valid;
-  uint8_t value;
+  uint8_t value __attribute__ ((aligned (8)));
 };
 
 // Parses ASCII numbers between 0 and 255 with validation.

@@ -1,7 +1,6 @@
 
 #[no_mangle]
-#[allow(improper_ctypes_definitions)]
-pub extern "C" fn parse_uint8_fastswar_rs(b: &[u8]) -> Option<u8> {
+pub fn parse_uint8_fastswar_rs(b: &[u8]) -> Option<u8> {
   if b.len() == 0 || b.len() > 3 { return None; }
   let p = b.as_ptr() as *const u32;
   let mut digits = unsafe { p.read_unaligned() };
@@ -13,8 +12,7 @@ pub extern "C" fn parse_uint8_fastswar_rs(b: &[u8]) -> Option<u8> {
 }
 
 #[no_mangle]
-#[allow(improper_ctypes_definitions)]
-pub extern "C" fn parse_uint8_fastswar_bob_rs(b: &[u8]) -> Option<u8> {
+pub fn parse_uint8_fastswar_bob_rs(b: &[u8]) -> Option<u8> {
   let p = b.as_ptr() as *const u32;
   let mut digits = unsafe { p.read_unaligned() };
   digits ^= 0x303030;
