@@ -10,6 +10,10 @@
 
 #include "parseuint8.h"
 
+#ifndef uint
+typedef unsigned int uint;
+#endif
+
 bool basic_test() {
   printf("basic_test\n");
   for (uint i = 0; i < 256; i++) {
@@ -24,12 +28,32 @@ bool basic_test() {
     }
     parse_uint8_fastswar(input.data(), input.size(), &result);
     if (result != expected) {
-      printf("swar2 FAILURE %d\n", i);
+      printf("fastswar FAILURE %d\n", i);
+      return false;
+    }
+    result = parse_uint8_fastswar_option(input.data(), input.size()).value;
+    if (result != expected) {
+      printf("fastswar_option FAILURE %d\n", i);
+      return false;
+    }
+    result = parse_uint8_fastswar_rs(input.data(), input.size()).value;
+    if (result != expected) {
+      printf("fastswar_rs FAILURE %d\n", i);
       return false;
     }
     parse_uint8_fastswar_bob(input.data(), input.size(), &result);
     if (result != expected) {
-      printf("swar2 FAILURE %d\n", i);
+      printf("fastswar_bob FAILURE %d\n", i);
+      return false;
+    }
+    result = parse_uint8_fastswar_bob_option(input.data(), input.size()).value;
+    if (result != expected) {
+      printf("fastswar_bob_option FAILURE %d\n", i);
+      return false;
+    }
+    result = parse_uint8_fastswar_bob_rs(input.data(), input.size()).value;
+    if (result != expected) {
+      printf("fastswar_bob_rs FAILURE %d\n", i);
       return false;
     }
     parse_uint8_fromchars(input.data(), input.size(), &result);
@@ -44,7 +68,7 @@ bool basic_test() {
     }
     parse_uint8_lut(input.data(), input.size(), &result);
     if (result != expected) {
-      printf("naive FAILURE %d\n", i);
+      printf("lut FAILURE %d\n", i);
       return false;
     }
   }
@@ -61,12 +85,32 @@ bool basic_test() {
     }
     r = parse_uint8_fastswar(input.data(), input.size(), &result);
     if (r) {
-      printf("swar2 FAILURE %d\n", i);
+      printf("fastswar FAILURE %d\n", i);
+      return false;
+    }
+    r = parse_uint8_fastswar_option(input.data(), input.size()).valid;
+    if (r) {
+      printf("fastswar_option FAILURE %d\n", i);
+      return false;
+    }
+    r = parse_uint8_fastswar_rs(input.data(), input.size()).valid;
+    if (r) {
+      printf("fastswar_rs FAILURE %d\n", i);
       return false;
     }
     r = parse_uint8_fastswar_bob(input.data(), input.size(), &result);
     if (r) {
-      printf("swarbob FAILURE %d\n", i);
+      printf("fastswar_bob FAILURE %d\n", i);
+      return false;
+    }
+    r = parse_uint8_fastswar_bob_option(input.data(), input.size()).valid;
+    if (r) {
+      printf("fastswar_bob_option FAILURE %d\n", i);
+      return false;
+    }
+    r = parse_uint8_fastswar_bob_rs(input.data(), input.size()).valid;
+    if (r) {
+      printf("fastswar_bob_rs FAILURE %d\n", i);
       return false;
     }
     r = parse_uint8_fromchars(input.data(), input.size(), &result);
@@ -81,7 +125,7 @@ bool basic_test() {
     }
     r = parse_uint8_lut(input.data(), input.size(), &result);
     if (r) {
-      printf("naive FAILURE %d\n", i);
+      printf("lut FAILURE %d\n", i);
       return false;
     }
   }
@@ -91,57 +135,133 @@ bool basic_test() {
     r1 = parse_uint8_fastswar((const char *)&i, 1, &result);
     r2 = parse_uint8_naive((const char *)&i, 1, &result);
     if (r1 != r2) {
-      printf("mismatch1 %d\n", i);
+      printf("fastswar mismatch1 %d\n", i);
       return false;
     }
     r1 = parse_uint8_fastswar((const char *)&i, 2, &result);
     r2 = parse_uint8_naive((const char *)&i, 2, &result);
     if (r1 != r2) {
-      printf("mismatch2 %d\n", i);
+      printf("fastswar mismatch2 %d\n", i);
       return false;
     }
     r1 = parse_uint8_fastswar((const char *)&i, 3, &result);
     r2 = parse_uint8_naive((const char *)&i, 3, &result);
     if (r1 != r2) {
-      printf("mismatch3 %d\n", i);
+      printf("fastswar mismatch3 %d\n", i);
+      return false;
+    }
+
+    r1 = parse_uint8_fastswar_option((const char *)&i, 1).valid;
+    r2 = parse_uint8_naive((const char *)&i, 1, &result);
+    if (r1 != r2) {
+      printf("fastswar_option mismatch1 %d\n", i);
+      return false;
+    }
+    r1 = parse_uint8_fastswar_option((const char *)&i, 2).valid;
+    r2 = parse_uint8_naive((const char *)&i, 2, &result);
+    if (r1 != r2) {
+      printf("fastswar_option mismatch2 %d\n", i);
+      return false;
+    }
+    r1 = parse_uint8_fastswar_option((const char *)&i, 3).valid;
+    r2 = parse_uint8_naive((const char *)&i, 3, &result);
+    if (r1 != r2) {
+      printf("fastswar_option mismatch3 %d\n", i);
+      return false;
+    }
+
+    r1 = parse_uint8_fastswar_rs((const char *)&i, 1).valid;
+    r2 = parse_uint8_naive((const char *)&i, 1, &result);
+    if (r1 != r2) {
+      printf("fastswar_rs mismatch1 %d\n", i);
+      return false;
+    }
+    r1 = parse_uint8_fastswar_rs((const char *)&i, 2).valid;
+    r2 = parse_uint8_naive((const char *)&i, 2, &result);
+    if (r1 != r2) {
+      printf("fastswar_rs mismatch2 %d\n", i);
+      return false;
+    }
+    r1 = parse_uint8_fastswar_rs((const char *)&i, 3).valid;
+    r2 = parse_uint8_naive((const char *)&i, 3, &result);
+    if (r1 != r2) {
+      printf("fastswar_rs mismatch3 %d\n", i);
       return false;
     }
 
     r1 = parse_uint8_fastswar_bob((const char *)&i, 1, &result);
     r2 = parse_uint8_naive((const char *)&i, 1, &result);
     if (r1 != r2) {
-      printf("mismatch1 %d\n", i);
+      printf("fastswar_bob mismatch1 %d\n", i);
       return false;
     }
     r1 = parse_uint8_fastswar_bob((const char *)&i, 2, &result);
     r2 = parse_uint8_naive((const char *)&i, 2, &result);
     if (r1 != r2) {
-      printf("mismatch2 %d\n", i);
+      printf("fastswar_bob mismatch2 %d\n", i);
       return false;
     }
     r1 = parse_uint8_fastswar_bob((const char *)&i, 3, &result);
     r2 = parse_uint8_naive((const char *)&i, 3, &result);
     if (r1 != r2) {
-      printf("mismatch3 %d\n", i);
+      printf("fastswar_bob mismatch3 %d\n", i);
+      return false;
+    }
+
+    r1 = parse_uint8_fastswar_bob_option((const char *)&i, 1).valid;
+    r2 = parse_uint8_naive((const char *)&i, 1, &result);
+    if (r1 != r2) {
+      printf("fastswar_bob_option mismatch1 %d\n", i);
+      return false;
+    }
+    r1 = parse_uint8_fastswar_bob_option((const char *)&i, 2).valid;
+    r2 = parse_uint8_naive((const char *)&i, 2, &result);
+    if (r1 != r2) {
+      printf("fastswar_bob_option mismatch2 %d\n", i);
+      return false;
+    }
+    r1 = parse_uint8_fastswar_bob_option((const char *)&i, 3).valid;
+    r2 = parse_uint8_naive((const char *)&i, 3, &result);
+    if (r1 != r2) {
+      printf("fastswar_bob_option mismatch3 %d\n", i);
+      return false;
+    }
+
+    r1 = parse_uint8_fastswar_bob_rs((const char *)&i, 1).valid;
+    r2 = parse_uint8_naive((const char *)&i, 1, &result);
+    if (r1 != r2) {
+      printf("fastswar_bob_rs mismatch1 %d\n", i);
+      return false;
+    }
+    r1 = parse_uint8_fastswar_bob_rs((const char *)&i, 2).valid;
+    r2 = parse_uint8_naive((const char *)&i, 2, &result);
+    if (r1 != r2) {
+      printf("fastswar_bob_rs mismatch2 %d\n", i);
+      return false;
+    }
+    r1 = parse_uint8_fastswar_bob_rs((const char *)&i, 3).valid;
+    r2 = parse_uint8_naive((const char *)&i, 3, &result);
+    if (r1 != r2) {
+      printf("fastswar_bob_rs mismatch3 %d\n", i);
       return false;
     }
 
     r1 = parse_uint8_lut((const char *)&i, 1, &result);
     r2 = parse_uint8_naive((const char *)&i, 1, &result);
     if (r1 != r2) {
-      printf("parse_uint8_lut mismatch1 %d\n", i);
+      printf("lut mismatch1 %d\n", i);
       return false;
     }
     r1 = parse_uint8_lut((const char *)&i, 2, &result);
     r2 = parse_uint8_naive((const char *)&i, 2, &result);
     if (r1 != r2) {
-      printf("parse_uint8_lut mismatch2 %d\n", i);
+      printf("lut mismatch2 %d\n", i);
       return false;
     }
     r1 = parse_uint8_lut((const char *)&i, 3, &result);
     r2 = parse_uint8_naive((const char *)&i, 3, &result);
     if (r1 != r2) {
-      printf("parse_uint8_lut mismatch3 %d\n", i);
+      printf("lut mismatch3 %d\n", i);
       return false;
     }
   }

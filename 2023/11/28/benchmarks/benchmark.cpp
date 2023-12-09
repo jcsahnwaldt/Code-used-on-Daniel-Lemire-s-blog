@@ -51,9 +51,34 @@ int main(int argc, char **argv) {
         printf("parse_uint8_swar %d %d\n", result, val);
         abort();
       }
+      parse_uint8_fastswar_bob(s.data(), s.size(), &result);
+      if (result != val) {
+        printf("parse_uint8_fastswar_bob %d %d\n", result, val);
+        abort();
+      }
+      result = parse_uint8_fastswar_bob_option(s.data(), s.size()).value;
+      if (result != val) {
+        printf("parse_uint8_fastswar_bob_option %d %d\n", result, val);
+        abort();
+      }
+      result = parse_uint8_fastswar_bob_rs(s.data(), s.size()).value;
+      if (result != val) {
+        printf("parse_uint8_fastswar_bob_rs %d %d\n", result, val);
+        abort();
+      }
       parse_uint8_fastswar(s.data(), s.size(), &result);
       if (result != val) {
         printf("parse_uint8_fastswar %d %d\n", result, val);
+        abort();
+      }
+      result = parse_uint8_fastswar_option(s.data(), s.size()).value;
+      if (result != val) {
+        printf("parse_uint8_fastswar_option %d %d\n", result, val);
+        abort();
+      }
+      result = parse_uint8_fastswar_rs(s.data(), s.size()).value;
+      if (result != val) {
+        printf("parse_uint8_fastswar_rs %d %d\n", result, val);
         abort();
       }
       parse_uint8_fromchars(s.data(), s.size(), &result);
@@ -82,11 +107,43 @@ int main(int argc, char **argv) {
           }
         }));
      pretty_print(
+        input.size(), volume, "parse_uint8_fastswar_bob_option", bench([&input, &sum]() {
+          for (const std::string &s : input) {
+            auto [r, result] = parse_uint8_fastswar_bob_option(s.data(), s.size());
+            if(!r) { abort(); }
+            sum += result;
+          }
+        }));
+     pretty_print(
+        input.size(), volume, "parse_uint8_fastswar_bob_rs", bench([&input, &sum]() {
+          for (const std::string &s : input) {
+            auto [r, result] = parse_uint8_fastswar_bob_rs(s.data(), s.size());
+            if(!r) { abort(); }
+            sum += result;
+          }
+        }));
+     pretty_print(
         input.size(), volume, "parse_uint8_fastswar", bench([&input, &sum]() {
           for (const std::string &s : input) {
             uint8_t result;
             int r = parse_uint8_fastswar(s.data(), s.size(),
                                  &result); // technically, should check error
+            if(!r) { abort(); }
+            sum += result;
+          }
+        }));
+     pretty_print(
+        input.size(), volume, "parse_uint8_fastswar_option", bench([&input, &sum]() {
+          for (const std::string &s : input) {
+            auto [r, result] = parse_uint8_fastswar_option(s.data(), s.size());
+            if(!r) { abort(); }
+            sum += result;
+          }
+        }));
+     pretty_print(
+        input.size(), volume, "parse_uint8_fastswar_rs", bench([&input, &sum]() {
+          for (const std::string &s : input) {
+            auto [r, result] = parse_uint8_fastswar_rs(s.data(), s.size());
             if(!r) { abort(); }
             sum += result;
           }
