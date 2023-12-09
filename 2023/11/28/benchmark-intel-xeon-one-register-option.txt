@@ -1,0 +1,31 @@
+> lscpu
+Model name:          Intel(R) Xeon(R) CPU @ 2.60GHz
+CPU family:          6
+Model:               106
+Stepping:            6
+BogoMIPS:            5200.01
+
+random: 1
+volume 51473 bytes
+parse_uint8_fastswar_bob                 :   1.39 GB/s  539.9 Ma/s   1.85 ns/d 
+parse_uint8_fastswar_bob_option          :   1.26 GB/s  488.5 Ma/s   2.05 ns/d 
+parse_uint8_fastswar_bob_rs              :   1.10 GB/s  428.0 Ma/s   2.34 ns/d 
+parse_uint8_fastswar                     :   1.25 GB/s  485.1 Ma/s   2.06 ns/d 
+parse_uint8_fastswar_option              :   1.37 GB/s  530.4 Ma/s   1.89 ns/d 
+parse_uint8_fastswar_rs                  :   1.12 GB/s  435.8 Ma/s   2.29 ns/d 
+parse_uint8_lut                          :   1.46 GB/s  565.7 Ma/s   1.77 ns/d 
+parse_uint8_swar                         :   1.02 GB/s  395.4 Ma/s   2.53 ns/d 
+parse_uint8_fromchars                    :   0.40 GB/s  155.4 Ma/s   6.44 ns/d 
+parse_uint8_naive                        :   0.55 GB/s  214.0 Ma/s   4.67 ns/d 
+random: 0
+volume 51378 bytes
+parse_uint8_fastswar_bob                 :   1.39 GB/s  539.6 Ma/s   1.85 ns/d 
+parse_uint8_fastswar_bob_option          :   1.26 GB/s  490.0 Ma/s   2.04 ns/d 
+parse_uint8_fastswar_bob_rs              :   1.10 GB/s  428.9 Ma/s   2.33 ns/d 
+parse_uint8_fastswar                     :   1.25 GB/s  484.8 Ma/s   2.06 ns/d 
+parse_uint8_fastswar_option              :   1.37 GB/s  532.5 Ma/s   1.88 ns/d 
+parse_uint8_fastswar_rs                  :   1.12 GB/s  436.6 Ma/s   2.29 ns/d 
+parse_uint8_lut                          :   1.43 GB/s  557.8 Ma/s   1.79 ns/d 
+parse_uint8_swar                         :   1.01 GB/s  394.7 Ma/s   2.53 ns/d 
+parse_uint8_fromchars                    :   0.73 GB/s  284.0 Ma/s   3.52 ns/d 
+parse_uint8_naive                        :   1.06 GB/s  414.0 Ma/s   2.42 ns/d 
