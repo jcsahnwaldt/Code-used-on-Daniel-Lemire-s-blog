@@ -1,25 +1,24 @@
-loaded db: a15 (Apple A15)
 random: 1
 volume 51473 bytes
-parse_uint8_fastswar_bob                 :   1.70 GB/s  662.1 Ma/s   1.51 ns/d   3.58 GHz   5.41 c/d  41.36 i/d   2.10 c/b  16.07 i/b   7.64 i/c 
-parse_uint8_fastswar_bob_option          :   1.72 GB/s  669.5 Ma/s   1.49 ns/d   3.59 GHz   5.36 c/d  39.36 i/d   2.08 c/b  15.29 i/b   7.35 i/c 
-parse_uint8_fastswar_bob_rs              :   1.81 GB/s  702.8 Ma/s   1.42 ns/d   3.64 GHz   5.17 c/d  36.36 i/d   2.01 c/b  14.13 i/b   7.03 i/c 
-parse_uint8_fastswar                     :   1.51 GB/s  585.4 Ma/s   1.71 ns/d   3.58 GHz   6.11 c/d  36.36 i/d   2.37 c/b  14.13 i/b   5.95 i/c 
-parse_uint8_fastswar_option              :   1.51 GB/s  585.4 Ma/s   1.71 ns/d   3.58 GHz   6.11 c/d  35.36 i/d   2.37 c/b  13.74 i/b   5.79 i/c 
-parse_uint8_fastswar_rs                  :   1.51 GB/s  585.4 Ma/s   1.71 ns/d   3.58 GHz   6.11 c/d  33.36 i/d   2.38 c/b  12.96 i/b   5.46 i/c 
-parse_uint8_lut                          :   1.81 GB/s  702.8 Ma/s   1.42 ns/d   3.59 GHz   5.11 c/d  26.36 i/d   1.98 c/b  10.24 i/b   5.16 i/c 
-parse_uint8_swar                         :   1.35 GB/s  525.7 Ma/s   1.90 ns/d   3.56 GHz   6.78 c/d  41.35 i/d   2.63 c/b  16.07 i/b   6.10 i/c 
-parse_uint8_fromchars                    :   0.44 GB/s  171.7 Ma/s   5.82 ns/d   3.52 GHz  20.50 c/d  97.59 i/d   7.97 c/b  37.92 i/b   4.76 i/c 
-parse_uint8_naive                        :   0.73 GB/s  284.0 Ma/s   3.52 ns/d   3.54 GHz  12.45 c/d  43.29 i/d   4.84 c/b  16.82 i/b   3.48 i/c 
+parse_uint8_fastswar_bob                 :   1.71 GB/s  665.7 Ma/s   1.50 ns/d 
+parse_uint8_fastswar_bob_option          :   1.74 GB/s  675.1 Ma/s   1.48 ns/d 
+parse_uint8_fastswar_bob_rs              :   1.81 GB/s  702.8 Ma/s   1.42 ns/d 
+parse_uint8_fastswar                     :   1.51 GB/s  585.4 Ma/s   1.71 ns/d 
+parse_uint8_fastswar_option              :   1.51 GB/s  585.4 Ma/s   1.71 ns/d 
+parse_uint8_fastswar_rs                  :   1.51 GB/s  585.4 Ma/s   1.71 ns/d 
+parse_uint8_lut                          :   1.81 GB/s  702.8 Ma/s   1.42 ns/d 
+parse_uint8_swar                         :   1.35 GB/s  526.3 Ma/s   1.90 ns/d 
+parse_uint8_fromchars                    :   0.44 GB/s  172.7 Ma/s   5.79 ns/d 
+parse_uint8_naive                        :   0.73 GB/s  284.0 Ma/s   3.52 ns/d 
 random: 0
 volume 51378 bytes
-parse_uint8_fastswar_bob                 :   1.70 GB/s  662.1 Ma/s   1.51 ns/d   3.58 GHz   5.41 c/d  41.36 i/d   2.11 c/b  16.10 i/b   7.64 i/c 
-parse_uint8_fastswar_bob_option          :   1.72 GB/s  668.5 Ma/s   1.50 ns/d   3.58 GHz   5.36 c/d  39.36 i/d   2.09 c/b  15.32 i/b   7.35 i/c 
-parse_uint8_fastswar_bob_rs              :   1.81 GB/s  702.8 Ma/s   1.42 ns/d   3.59 GHz   5.11 c/d  36.35 i/d   1.99 c/b  14.15 i/b   7.11 i/c 
-parse_uint8_fastswar                     :   1.50 GB/s  585.4 Ma/s   1.71 ns/d   3.60 GHz   6.15 c/d  36.36 i/d   2.39 c/b  14.15 i/b   5.91 i/c 
-parse_uint8_fastswar_option              :   1.50 GB/s  585.4 Ma/s   1.71 ns/d   3.60 GHz   6.15 c/d  35.36 i/d   2.39 c/b  13.76 i/b   5.75 i/c 
-parse_uint8_fastswar_rs                  :   1.50 GB/s  585.4 Ma/s   1.71 ns/d   3.57 GHz   6.11 c/d  33.36 i/d   2.38 c/b  12.98 i/b   5.46 i/c 
-parse_uint8_lut                          :   1.81 GB/s  702.8 Ma/s   1.42 ns/d   3.59 GHz   5.11 c/d  26.36 i/d   1.99 c/b  10.26 i/b   5.16 i/c 
-parse_uint8_swar                         :   1.31 GB/s  511.2 Ma/s   1.96 ns/d   3.47 GHz   6.80 c/d  41.36 i/d   2.65 c/b  16.10 i/b   6.08 i/c 
-parse_uint8_fromchars                    :   0.66 GB/s  258.3 Ma/s   3.87 ns/d   3.53 GHz  13.67 c/d  97.48 i/d   5.32 c/b  37.95 i/b   7.13 i/c 
-parse_uint8_naive                        :   1.25 GB/s  485.3 Ma/s   2.06 ns/d   3.56 GHz   7.34 c/d  43.26 i/d   2.86 c/b  16.84 i/b   5.90 i/c 
+parse_uint8_fastswar_bob                 :   1.71 GB/s  664.8 Ma/s   1.50 ns/d 
+parse_uint8_fastswar_bob_option          :   1.73 GB/s  675.1 Ma/s   1.48 ns/d 
+parse_uint8_fastswar_bob_rs              :   1.81 GB/s  702.8 Ma/s   1.42 ns/d 
+parse_uint8_fastswar                     :   1.50 GB/s  585.4 Ma/s   1.71 ns/d 
+parse_uint8_fastswar_option              :   1.50 GB/s  585.4 Ma/s   1.71 ns/d 
+parse_uint8_fastswar_rs                  :   1.50 GB/s  585.4 Ma/s   1.71 ns/d 
+parse_uint8_lut                          :   1.81 GB/s  702.8 Ma/s   1.42 ns/d 
+parse_uint8_swar                         :   1.35 GB/s  526.3 Ma/s   1.90 ns/d 
+parse_uint8_fromchars                    :   0.66 GB/s  258.5 Ma/s   3.87 ns/d 
+parse_uint8_naive                        :   1.25 GB/s  485.8 Ma/s   2.06 ns/d 
